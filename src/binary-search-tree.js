@@ -76,11 +76,11 @@ class BinarySearchTree {
     }
   }
 
-  delete(data) {
-    this.rootNode = this.deleteNode(this.rootNode, data);
+  remove(data) {
+    this.rootNode = this.removeNode(this.rootNode, data);
   }
 
-  deleteNode(node, data) {
+  removeNode(node, data) {
     if (!node) {
       return null;
     }
@@ -96,13 +96,13 @@ class BinarySearchTree {
       }
       const minNode = this.findMinNode(node.right);
       node.data = minNode.data;
-      node.right = this.deleteNode(node.right, minNode.data);
+      node.right = this.removeNode(node.right, minNode.data);
       return node;
     } else if (data < node.data) {
-      node.left = this.deleteNode(node.left, data);
+      node.left = this.removeNode(node.left, data);
       return node;
     } else {
-      node.right = this.deleteNode(node.right, data);
+      node.right = this.removeNode(node.right, data);
       return node;
     }
   }
